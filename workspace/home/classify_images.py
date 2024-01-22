@@ -4,7 +4,7 @@
 #                                                                             
 # PROGRAMMER: Luis Munguia
 # DATE CREATED: 01/21/2024                      
-# REVISED DATE: 
+# REVISED DATE: 01/21/2024
 # PURPOSE: Create a function classify_images that uses the classifier function 
 #          to create the classifier labels and then compares the classifier 
 #          labels to the pet image labels. This function inputs:
@@ -23,12 +23,10 @@
 # Imports classifier function for using CNN to classify images 
 from classifier import classifier 
 
-# TODO 3: Define classify_images function below, specifically replace the None
 #       below by the function definition of the classify_images function. 
 #       Notice that this function doesn't return anything because the 
 #       results_dic dictionary that is passed into the function is a mutable 
 #       data type so no return is needed.
-# 
 def classify_images(images_dir, results_dic, model):
     """
     Creates classifier labels with classifier function, compares pet labels to 
@@ -67,7 +65,7 @@ def classify_images(images_dir, results_dic, model):
     """
 
     for file_path, label_arr in results_dic.items():
-        output = classifier(images_dir + file_path, model).lower()
+        output = classifier(images_dir + file_path, model).lower().strip()
         output_arr = output.split(', ')
         
         label_arr.append(output)
@@ -78,7 +76,5 @@ def classify_images(images_dir, results_dic, model):
             if label == output_label:
                 found_match = True
                 break
-        if found_match:
-            label_arr.append(1)
-        else:
-            label_arr.append(0)
+                
+        label_arr.append(int(fount_match))

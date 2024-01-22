@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # */AIPND-revision/intropyproject-classify-pet-images/get_pet_labels.py
-#                                                                             
+                                                            
 # PROGRAMMER: Luis Munguia
 # DATE CREATED: 01/21/2024                       
-# REVISED DATE: 
+# REVISED DATE: 01/21/2024
 # PURPOSE: Create the function get_pet_labels that creates the pet labels from 
 #          the image's filename. This function inputs: 
 #           - The Image Folder as image_dir within get_pet_labels function and 
@@ -19,10 +19,6 @@
 # Imports python modules
 from os import listdir
 
-# TODO 2: Define get_pet_labels function below please be certain to replace None
-#       in the return statement with results_dic dictionary that you create 
-#       with this function
-# 
 def get_pet_labels(image_dir):
     """
     Creates a dictionary of pet labels (results_dic) based upon the filenames 
@@ -45,6 +41,10 @@ def get_pet_labels(image_dir):
     files_arr = listdir(image_dir)
     
     for image in files_arr:
+        # Check for dotfiles and skip them
+        if image[0] == '.':
+            pass
+        
         image_arr = image.split('_')
         if image not in results_dic:
             results_dic[image] = []
@@ -52,7 +52,4 @@ def get_pet_labels(image_dir):
         else:
             print('The image: ', image, 'already exists in the dictionary')
 
-    # Replace None with the results_dic dictionary that you created with this
-    # function
-#     print(results_dic, 'RESULTS DIC')
     return results_dic

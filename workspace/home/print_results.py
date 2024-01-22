@@ -4,7 +4,7 @@
 #                                                                             
 # PROGRAMMER: Luis Munguia
 # DATE CREATED: 01/21/2024
-# REVISED DATE: 
+# REVISED DATE: 01/21/2024
 # PURPOSE: Create a function print_results that prints the results statistics
 #          from the results statistics dictionary (results_stats_dic). It 
 #          should also allow the user to be able to print out cases of misclassified
@@ -26,11 +26,7 @@
 #         This function does not output anything other than printing a summary
 #         of the final results.
 ##
-# TODO 6: Define print_results function below, specifically replace the None
-#       below by the function definition of the print_results function. 
-#       Notice that this function doesn't to return anything because it  
-#       prints a summary of the results using results_dic and results_stats_dic
-# 
+
 def print_results(results_dic, results_stats_dic, model, 
                   print_incorrect_dogs = False, print_incorrect_breed = False):
     """
@@ -80,20 +76,17 @@ def print_results(results_dic, results_stats_dic, model,
     
     if print_incorrect_dogs:
         print('Misclassified Dogs:')
-        if results_stats_dic['n_dogs_img'] + results_stats_dic['n_notdogs_img'] == results_stats_dic['n_images']:
+        if results_stats_dic['n_dogs_img'] + results_stats_dic['n_notdogs_img'] != results_stats_dic['n_images']:
             print('No dogs were incorrectly misclassified')
         else:
-            for pet_image, arr in results_dic.items():
+            for arr in results_dic.values():
                 if arr[3] != arr[4]:
-                    print('The pet image:', pet_image, ' . The classifier label:', arr[1])
+                    print('The pet image:', arr[0], ' . The classifier label:', arr[1])            
     if print_incorrect_breed:
         print('Misclassified Breeds:')
         if results_stats_dic['n_correct_dogs'] == results_stats_dic['n_correct_breed']:
             print('No breeds of dog were incorrectly misclassified')
         else:
-            for pet_image, arr in results_dic.items():
+            for arr in results_dic.values():
                 if (arr[3] == 1 and arr[4] == 1) and (arr[2] == 0):
-                    print('The pet image:', pet_image, ' . The classifier label:', arr[1])
-    
-    None
-                
+                    print('The pet image:', arr[0], ' . The classifier label:', arr[1])            
