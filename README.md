@@ -15,4 +15,4 @@ Your city is hosting a citywide dog show and you have volunteered to help the or
 - resnet_pet-images.txt
 - alexnet_pet-iamges.txt
 
-[table specifying model results](model-results.png)
+![table specifying model results](model-results.png)
