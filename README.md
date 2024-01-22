@@ -12,8 +12,11 @@ Your city is hosting a citywide dog show and you have volunteered to help the or
 ### How to run the program:
 1. Enter the following in the terminal to rull all 3 models: sh run_models_batch.sh
 2. Run each individually in the terminal:
+
    -- python check_images.py --dir pet_images/ --arch resnet  --dogfile dognames.txt
-   -- python check_images.py --dir pet_images/ --arch alexnet  --dogfile dognames.txt  
+
+   -- python check_images.py --dir pet_images/ --arch alexnet  --dogfile dognames.txt
+
    -- python check_images.py --dir pet_images/ --arch vgg  --dogfile dognames.txt 
 
 ### Architecture Results may be found in:
